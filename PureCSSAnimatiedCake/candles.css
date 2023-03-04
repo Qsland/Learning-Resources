@@ -1,0 +1,193 @@
+.candles {
+  /* 元素内部flex布局 */
+  display: flex;
+  /* 主轴方向  每行均匀分布 */
+  justify-content: space-evenly;
+
+  height: 150px;
+  width: 80%;
+  /* 水平居中 */
+  margin: 0 auto; 
+  
+  /* 不能继承，哪里需要写哪里 */
+  /* 设置元素的子元素是位于 3D 空间中还是平面中 */
+  transform-style: preserve-3d;
+  /* 沿y轴旋转，角度为0 好像不写也可以*/
+  transform: rotateY(0);
+
+  /* 匀速旋转，一直旋转，一次旋转为一个执行周期，一个执行周期为5s */
+  animation: turn infinite linear 5s;
+  /* 定义一个动画是否运行或者暂停
+     可以通过查询它来确定动画是否正在运行。另外，它的值可以被设置为暂停和恢复的动画的重放 
+     恢复一个已暂停的动画，将从它开始暂停的时候，而不是从动画序列的起点开始在动画  
+  */
+  /* animation-play-state: running; */
+}
+
+
+
+.candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  transform-style: preserve-3d;
+  transform: rotateY(0);
+  animation: turncandle infinite linear 5s;
+  /* animation-play-state: running; */
+
+  /* hide什么？ */
+  /* overflow: hidden; */
+  width: 30px;
+}
+
+/* 阴影 */
+.candle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 15px;
+  background-color: rgba(0, 0, 0, .15);
+
+}
+
+/* wax */
+.candle--wax {
+  /* display: flex; */
+  /* 简写属性，设置了弹性项目如何增大或缩小以适应其弹性容器中可用的空间 */
+  /* column方向均匀分布 */
+  flex: 1;
+
+  width: 100%;
+  /* 写了flex这个height就没必要了，减去另外两个的box'高度，剩下全是这个的 */
+  /* height: 80%; */
+  border-radius: 20px 20px 0 0;
+  /* 渐变背景 */
+  /* 角度 开始颜色 [第一段过度颜色 持续距离] [第二段过渡颜色 持续距离] ... [一个循环后的结束颜色 一个循环的距离] */
+  background: repeating-linear-gradient(-50deg, #a3acff, #a3acff 20px, #dcfaac 20px,  #dcfaac 40px);
+  background-position: 0px 0;
+  /* 内部的渐变的动画 */
+  animation: candlewax infinite linear 2.5s;
+}
+
+.candle--wick {
+  height: 4px;
+  width: 2px;
+  background-color: #afdbf8;
+}
+
+.candle--light {
+  width: 40%;
+  height: 20px;
+  /* 火焰的一个角是90度，其他的圆弧，很有意思 */
+  background: linear-gradient(-45deg, #fdf967, rgba(253, 249, 103, .5));
+  border-radius: 0 60% 30% 60%;
+  transform: translate(30%, 4%) rotate(45deg);
+  animation: candleLight infinite linear 1.2s;
+}
+
+/* shadow */
+.has-shadow .candle--wax {
+  position: relative;
+  /* 让.candle--wax::before相对于.candle--wax*/
+  /* overflow: hidden; */
+}
+.has-shadow .candle--wax::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, .2);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+
+  animation: shadow infinite linear 2.5s;
+}
+
+.has-shadow.back .candle--wax::before {
+  animation: shadow-back infinite linear 5s;
+}
+
+.has-shadow.front .candle--wax::before {
+  animation: shadow-back infinite linear 5s;
+  animation-delay: 2.5s;
+}
+
+@keyframes candleLight {
+  0% {
+    transform: translate(30%, 4%)
+      rotate(45deg);
+  }
+  50% {
+    transform: translate(30%, 4%)
+      rotate(33deg);
+  }
+  100% {
+    transform: translate(30%, 4%)
+    rotate(45deg);
+  }
+}
+
+/* 这里是为什么呀 应该是慢慢平移上去 高度不对会有明显的分隔*/
+@keyframes candlewax {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -124px;
+  }
+}
+
+@keyframes turn {
+  from {
+    transform: rotateY(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* 整个candle转过去多少每个candle就转回来多少，保证看起来是圆的 */
+@keyframes turncandle {
+  from {
+    transform: rotateY(-360deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes shadow {
+  0% {
+    /* opacity 属性指定了一个元素的不透明度。换言之，opacity 属性指定了一个元素后面的背景的被覆盖程度。 */
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shadow-back {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
