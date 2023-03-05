@@ -1,6 +1,7 @@
 html, body{
   height: 100%;
 }
+/* 看看仍然不起作用咧 */
 * {
   margin: 0;
   padding: 0;
