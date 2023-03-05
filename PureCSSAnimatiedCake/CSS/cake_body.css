@@ -9,7 +9,7 @@
   overflow: hidden;
   /* 让两行奶油不要换行 */
   white-space: nowrap;
-  font-size: 0;
+  /* font-size: 0; */
 }
 
 .cream {
@@ -109,6 +109,12 @@
   top: 0px;
   /* 两个奶油之间有空隙，font-size设置了0也没有效果 */
   /* Chrome 以及 Chromium 内核的浏览器在中文语言下最小字体只能是 12px */
+  /* 3.5 突然觉得应该不是这个原因，只是增加了1px就能覆盖缝隙
+   * 确认了在firefox中压根不会出现空隙，即便不设置font-size，即便仍然保留文本分割符号
+   * 我的结论是firefox和chrome中对于inlin-box的渲染方式可能有不同，具体为什么不同，
+   * 我搞不太清楚，病急乱投医问了chatgpt，哈哈但是没有具体的参考资料，懒得找了先这样吧
+   * 
+   */
   width: 31px;
 }
 
