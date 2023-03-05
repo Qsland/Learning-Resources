@@ -1,0 +1,15 @@
+.lamp-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.lamp-rope {
+  position: absolute;
+  width: 8px;
+  height: 1200px;
+  /* 从上至下到90%处开始颜色过渡 本质也是img */
+  background: linear-gradient(var(--border-color) 90%, var(--rope-color));
+  bottom: 100%;
+}

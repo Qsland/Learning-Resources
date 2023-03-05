@@ -1,0 +1,128 @@
+form {
+  /* 这个margin edge、Chrome没有，firefox有默认的margin，要设为0 */
+  /* margin: 0; */
+  width: 200px;
+  padding: 2em 2.2em;
+  border-radius: 4px;
+  background-color: var(--slider-bg-color);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+
+.sun {
+  /* 从原始文档流中脱离出来但仍保留一定的流动性
+   * 当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。
+   * 所以float:left 其实是在父元素容器的左上角开始
+   */
+  float: left;
+  /* 并不会影响float布局 */
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background-color: var(--icon-color);
+  border-radius: 50%;
+  /* 太阳太大了会热 */
+  /* scale(x[,y])  修改元素的大小 [-1-1]之间缩小 只有一个x，可以等价于x=y*/
+  /* transform */
+  /* 0.8倍，约等于slider上滑块的大小 */
+  transform: scale(.8);
+}
+
+.ray {
+  position: absolute;
+  left: 3px;
+  bottom: 12px;
+
+  width: 2px;
+  height: 4px;
+  background-color: var(--icon-color);
+  border-radius: 50%;
+
+  /* 定义transform原点 */
+  /* 默认值是ray自身的center
+   * calc()允许在声明 CSS 属性值时执行一些计算
+   */
+  transform-origin: 50% calc(100% + 8px);
+}
+
+/* 小太阳的光线要散开啦！ */
+.ray:nth-child(1) {
+  transform: rotate(45deg);
+}
+.ray:nth-child(2) {
+  transform: rotate(90deg);
+}
+.ray:nth-child(3) {
+  transform: rotate(135deg);
+}
+.ray:nth-child(4) {
+  transform: rotate(180deg);
+}
+.ray:nth-child(5) {
+  transform: rotate(225deg);
+}
+.ray:nth-child(6) {
+  transform: rotate(270deg);
+}
+.ray:nth-child(7) {
+  transform: rotate(315deg);
+}
+
+input[type="range"] {
+  /* 清除浏览器的默认样式 */
+  /* -webkit-appearence基于 WebKit 的浏览器（如 Safari）和基于 Blink 的浏览器 */
+  /* 这里在firefox上也能用 */
+  -webkit-appearance: none;
+
+  /* range和小太阳水平 */
+  margin: 3px 0;
+  float: right;
+  width: calc(100% - 30px);
+ 
+  /* firefox里边在这儿控制slider */
+  height: 2px;
+  background-color: var(--icon-color);
+  border-radius: 1px;
+}
+input[type="range"] {
+  -moz-appearance: none;
+}
+
+/* ::-webkit-slider-runnable-track 
+ * 表示其在 type 为 range 的 input 标签内中的滑块凹槽，也就是滑块可滑动的区域
+*/
+input[type="range"]::-webkit-slider-runnable-track{
+  height: 2px;
+  cursor: pointer;
+  background-color: var(--icon-color);
+  border-radius: 1px;
+}
+
+/* ::-webkit-slider-thumb
+ * 是 type 为 range 的 input 标签内的一种伪类样式，用于设置 range 的滑块的具体样式
+*/
+input[type="range"]::-webkit-slider-thumb {
+  /* 这thumb的样式居然不跟随input */
+  -webkit-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: var(--icon-color);
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 5px var(--icon-color);
+}
+
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--icon-color);
+  cursor: pointer;
+  margin-top: -6px;
+}
