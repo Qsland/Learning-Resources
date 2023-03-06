@@ -1,7 +1,8 @@
 :root {
   --main-bg-color: #b095f1;
   --slider-bg-color: #b090f6;
-
+  --lamp-dark-color: #f679d2;
+  --lamp-light-color: #d5a4ef;
   --shadow-color: #734bd4;
   /*  */
   --icon-color: #ebe4f1;
@@ -11,7 +12,7 @@
   /* lamp size */
   --lamp-width: 140px;
   --lamp-height: 100px;
-  --lamp-top-height: 20px; /* 看起来是为了做体性圆柱效果*/
+  --lamp-top-height: 20px;
 }
 
 body {
@@ -26,5 +27,6 @@ body {
   width: 100vw;
   background-color: var(--main-bg-color);
   margin: 0;
+  overflow: hidden;
 }
 

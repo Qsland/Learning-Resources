@@ -19,3 +19,10 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties
 - 允许用户指定一个数值，该数值必须不小于给定值，不大于另一个给定值
 - min、max默认为0和100
 - step默认为1
+
+### 是不是应该先分析一下都是什么样的布局，即便不是说的术语，不要无脑冲，脑袋瓜转起来
+- 比如那个小太阳
+  - position布局 + transform: rotate() 旋转
+
+
+## 3.6 昨天没看到底是怎么控制range的value联动到lamp的，今天看到了，有一丝丝印象是我之前忘记是什么原因去专门查了一下on-event和addEventListener，就记得HTML里的on-event可以访问到所有docuent节点，今天也算复习了吧，前途堪忧哈哈哈哈
