@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f0;
+  color: transparent;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  user-select: none;
+}
+
+/* position: absolute; 元素会被移出正常文档流，并不为元素预留空间 */
+/* 绝对定位元素相对于最近的非 static 祖先元素定位。当这样的祖先元素不存在时，
+ * 则相对于 ICB（inital container block, 初始包含块） */
+.word {
+  position: absolute;
+  cursor: grab;
+  font-size: 30px;
+  color: #ffeb3b;
+}
+
+.word.highlighted {
+  font-weight: bold;
+  color: black;
+}
