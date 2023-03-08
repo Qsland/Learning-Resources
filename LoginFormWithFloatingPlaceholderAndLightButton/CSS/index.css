@@ -11,7 +11,7 @@ body {
   /* body有maigin、padding html没有margin、padding 基于Chrome、Edge、firefox*/
   margin: 0;
   height: 200px;
-  /* edge DEV没有这个字体 */
+
   font-family:sans-serif;
 }
 
