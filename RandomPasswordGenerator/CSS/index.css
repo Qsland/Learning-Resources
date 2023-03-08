@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  outline: 0;
+}
+
+:root {
+  --field-color: rgba(255, 255, 255, .08);
+  --field-height: 
+}
+
+body {
+  /* a居然用的flex */
+  display: flex;
+  /* justify-content 主轴 */
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  /* 最近经常遇到这个，用到了新属性to top，方向是从下到上
+   * 作者写的是100% 和 200% 那不就没有用了吗
+   */
+  background: linear-gradient(to top, #209cff 10%, #68e0cf);
+
+  color: #fff;
+}
+
+.container {
+  width: 400px;
+  height: 600px;
+  margin: 40px 0;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: #0a0e31;
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, .45),
+              0 4px 8px rgba(0, 0, 0, .35),
+              0 8px 12px rgba(0, 0, 0, .15);
+}
+
+.container h2.title {
+  /* rem root element? */
+  font-size: 1.75rem;
+  /* 为了让title往左边靠一些 */
+  margin: 10px -5px 30px -5px;
+  color: #fff;
+}
+
+/* result */
+.result {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  
+  /* background-color: rgb(255, 209, 209); */
+}
+
+.result-info {
+  position: absolute;
+  bottom: 4px;
+  font-size: .8rem;
+
+  /* ease-in-out 先慢后快 */
+  transition: all 150ms ease-in-out;
+  transform: translateY(200%);
+  opacity: 0;
+}
+
+.result-info .-right {
+  right: 8px;
+}
+.result-info .-left {
+  left: 8px;
+}
+
+.result-viewbox {
+  width: 100%;
+  height: 100%;
+  background: var(--field-color);
+  border-radius: 8px;
+  /* 文字垂直水平居中 */
+  /* 再复习一遍，text-align行内内容相对于父盒子水平居中 */
+  text-align: center;
+  line-height: 65px;
+  text-transform: uppercase;
+}
+
+.result #copy_btn {
+  position: absolute;
+  /* 这个--y和--x是实时坐标吧，怎么生成的？居然在行内样式也能用 */
+  top: var(--y);
+  left: var(--x);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #fff;
+}

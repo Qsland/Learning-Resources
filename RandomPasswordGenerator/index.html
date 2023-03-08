@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Password Generator</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <script src="https://kit.fontawesome.com/27be9953c2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./CSS/index.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">Password Generator</h2>
+    <div class="result">
+      <div class="result-title">Generated Password</div>
+      <div class="result-info -right">click to copy</div>
+      <div class="result-info -left">copied</div>
+      <div class="result-viewbox">click generate</div>
+      <button id="copy_btn">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+    </div>
+    <div class="range-slider" min="4" max="32"></div>
+    <div class="settings"></div>
+    <button class="btn">generate password</button>
+  </div>
+</body>
+</html>
