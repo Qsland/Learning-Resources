@@ -69,8 +69,7 @@ input[id="slider"]::-webkit-slider-thumb {
 }
 
 input[id="slider"]::-webkit-slider-thumb:hover {
-  background: var(--range-handle-color-hover);
-  transform: scale(1.2);
+  box-shadow: 0 0 8px 0 #fff;
 }
 
 input[id="slider"]::-moz-range-thumb {
@@ -84,6 +83,5 @@ input[id="slider"]::-moz-range-thumb {
 }
 
 input[id="slider"]::-moz-range-thumb:hover {
-  background: var(--range-handle-color-hover);
-  transform: scale(1.2);
+  box-shadow: 0 0 8px 0 #fff;
 }

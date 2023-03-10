@@ -51,9 +51,60 @@
 }
 
 .settings .setting label::after {
-  right: 30px;
+  right: 32px;
   height: 24px;
   width: 24px;
   border-radius: 50%;
   background: #fff;
+}
+
+.settings .setting input:checked + label::before {
+  background: #5d68e2;
+}
+.settings .setting input:checked + label::after {
+  right: 14px;
+}
+
+.settings .setting input:focus + label::before {
+  /* 这里对于阴影尺寸的用法很有趣 */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .75);
+}
+
+.settings .setting input:disabled + label::before,
+.settings .setting input:disabled + label::after {
+  cursor: not-allowed;
+}
+
+.settings .setting input:disabled + label::before {
+  background: #4f4f6a;
+}
+
+.settings .setting input:disabled + label::after {
+  background: #909090;
+}
+
+.btn.generate {
+  position: relative;
+
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  /* border: none; */
+  border-radius: var(--field-border-radius);
+  user-select: none;
+  background-image: linear-gradient(135deg, #667eea, #764ba2);
+
+  /* button的默认属性是不可以继承的，不会自动获取父元素的coloe，像input也是 */
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.btn.generate:active {
+  transform: translateY(-4%);
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.4);
 }
