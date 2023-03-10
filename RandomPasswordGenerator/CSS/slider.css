@@ -1,0 +1,89 @@
+.range-slider {
+  position: relative;
+  display: flex;
+  /* 主轴 */
+  justify-content: center;
+  /* 交叉轴 */
+  align-items: center;
+
+  height: calc(var(--field-height) - 10px);
+  background: var(--field-color);
+  margin: 30px 0;
+  border-radius: var(--field-border-radius);
+}
+
+.range-slider::after,
+.range-slider::before {
+  position: absolute;
+  color: #fff;
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+/* attr() 获取选择到的元素的某一个HTML属性值 */
+.range-slider::before {
+  content: attr(data-min);
+  left: 10px;
+}
+
+.range-slider::after {
+  content: attr(data-max);
+  right: 10px;
+}
+
+.range-slider .length-title::after {
+  content: attr(data-length);
+  position: absolute;
+  right: -16px;
+  /* 控制数字、分数和序号标记的替代字形的使用 */
+  /* 启用表格数字显示。使数字等宽，易于像表格那样对齐。等同于 OpenType 特性 tnum。 */
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+input[id="slider"] {
+  /* 这里把出了thumb的样式重置 */
+  -webkit-appearance: none;
+  width: calc(100% - 10px - var(--range-track-width));
+  
+  background-color: #fff;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  height: var(--range-track-height);
+  border-radius: 1px;
+}
+
+/* 在webkit / blink 中设置range的具体样式 */
+input[id="slider"]::-webkit-slider-thumb {
+  /* 重置滑块 */
+  -webkit-appearance: none;
+  width: var(--range-handle-size);
+  height: var(--range-handle-size);
+  border-radius: 50%;
+  background-color: var(--range-handle-color);
+  cursor: pointer;
+
+  transition: all .15s ease-in-out;
+}
+
+input[id="slider"]::-webkit-slider-thumb:hover {
+  background: var(--range-handle-color-hover);
+  transform: scale(1.2);
+}
+
+input[id="slider"]::-moz-range-thumb {
+  width: var(--range-handle-size);
+  height: var(--range-handle-size);
+  border-radius: 50%;
+  background-color: var(--range-handle-color);
+  cursor: pointer;
+
+  transition: all .15s ease-in-out;
+}
+
+input[id="slider"]::-moz-range-thumb:hover {
+  background: var(--range-handle-color-hover);
+  transform: scale(1.2);
+}

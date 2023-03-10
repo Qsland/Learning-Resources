@@ -7,7 +7,10 @@
   <title>Random Password Generator</title>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <script src="https://kit.fontawesome.com/27be9953c2.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./CSS/index.css">
+  <link rel="stylesheet" href="./CSS/common.css" type="text/css">
+  <link rel="stylesheet" href="./CSS/slider.css" type="text/css">
+  <link rel="stylesheet" href="./CSS/result.css" type="text/css">
+  <link rel="stylesheet" href="./CSS/settings.css" type="text/css">
 </head>
 <body>
   <div class="container">
@@ -18,20 +21,20 @@
       <div class="result-info -right">click to copy</div>
       <div class="result-info -left">copied</div>
       <div class="result-viewbox">click generate</div>
-      <button id="copy-btn">
+      <button id="copy-btn" style="--x: 0; --y: 0;">
         <i class="fa-solid fa-copy"></i>
       </button>
     </div>
 
-    <div class="length">
+    <div class="length range-slider" data-min="4" data-max="32">
       <!-- 这里用的div 下面setting用的span -->
-      <div class="length-title">length:</div>
+      <div class="length-title field-title" data-length="0">length:</div>
       <!-- value是初始值 -->
       <input type="range" id="slider" max="4" max="32" value="16" />
     </div>
   
     <div class="settings">
-      <span class="settings-title">settings</span>
+      <span class="settings-title field-title">settings</span>
   
       <div class="setting">
         <input type="checkbox" id="uppercase" />

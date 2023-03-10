@@ -1,56 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-button {
-  border: 0;
-  outline: 0;
-}
-
-:root {
-  --field-color: rgba(255, 255, 255, .08);
-  /* --field-height: ; */
-}
-
-body {
-  /* a居然用的flex */
-  display: flex;
-  /* justify-content 主轴 */
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-  /* 最近经常遇到这个，用到了新属性to top，方向是从下到上
-   * 作者写的是100% 和 200% 那不就没有用了吗
-   */
-  background: linear-gradient(to top, #209cff 10%, #68e0cf);
-
-  color: #fff;
-}
-
-.container {
-  width: 400px;
-  height: 600px;
-  margin: 40px 0;
-  padding: 10px 25px;
-  border-radius: 10px;
-  background-color: #0a0e31;
-
-  box-shadow: 0 0 5px rgba(0, 0, 0, .45),
-              0 4px 8px rgba(0, 0, 0, .35),
-              0 8px 12px rgba(0, 0, 0, .15);
-}
-
-.container h2.title {
-  /* rem root element? */
-  font-size: 1.75rem;
-  /* 为了让title往左边靠一些 */
-  margin: 10px -5px 30px -5px;
-  color: #fff;
-}
-
 /* result */
 .result {
   position: relative;
@@ -94,6 +41,7 @@ body {
   position: absolute;
   /* 这个--y和--x是实时坐标吧，怎么生成的？居然在行内样式也能用 */
   /* 能够记忆上次消失的位置，从同一个位置出来 */
+  /* 这里是在内联样式中定义的CSS变量，仅本元素内部可见 */
   top: var(--y);
   left: var(--x);
   width: 38px;
@@ -117,19 +65,4 @@ body {
   opacity: 1;
   /* translate让图标移动到鼠标中心，不然鼠标的尖尖就是图标的左上角 */
   transform: translate(-50%, -50%) scale(1.35);
-}
-
-.field-title {
-  position: absolute;
-  top: -10px;
-  left: 8px;
-  /* 感觉可以直接写top: -20px */
-  transform: translateY(-50%);
-
-  font-weight: 800;
-  color: rgba(255, 255, 255, .5);
-  text-transform: uppercase;
-  font-size: 0.65rem;
-  /* pointer-events: none;
-  user-select: none; */
 }

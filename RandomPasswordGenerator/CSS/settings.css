@@ -1,0 +1,59 @@
+.settings {
+  /* title needs this */
+  position: relative;
+  /* flex布局是不是也不需要？ */
+  display: flex;
+  flex-direction: column;
+  /* widows 设置一个块级容器在新的分页，区域或者列的顶部需要结合在一起的最小行数*/
+  /* widows: 100%; */
+}
+
+.settings .setting {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  height: calc(var(--field-height) - 10px);
+  margin-bottom: 8px;
+  padding: 10px 25px;
+  border-radius: var(--field-border-radius);
+  background: var(--field-color);
+}
+
+.settings .setting input {
+  position: absolute;
+  opacity: 0;
+}
+
+.settings .setting label {
+  /* 不允许被选择 */
+  user-select: none;
+}
+
+.settings .setting label::before,
+.settings .setting label::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  /* 垂直居中 */
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: all 150ms cubic-bezier(.24, 0, .5, 1);
+  cursor: pointer;
+}
+
+.settings .setting label::before {
+  height: 30px;
+  width: 50px;
+  border-radius: 30px;
+  background: rgba(214, 214, 214, .434);
+}
+
+.settings .setting label::after {
+  right: 30px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #fff;
+}
