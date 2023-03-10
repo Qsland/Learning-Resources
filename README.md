@@ -19,5 +19,5 @@ There is something interesting that I came across by accident. I cloned them fro
 
 ## 🎉🎉Achievements🎉🎉
 - [x] ONE WEEK STREAK 3.10
-- [ ] TWO WEEK STREAK
+- [ ] TWO WEEKS STREAK
 - [ ] ONE MONTH STREAK
