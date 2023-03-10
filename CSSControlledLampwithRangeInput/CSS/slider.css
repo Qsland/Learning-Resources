@@ -20,9 +20,11 @@ input[type="range"] {
   width: calc(100% - 30px);
  
   /* firefox里边在这儿控制slider */
+  /* 3.10 今天在generate password中也遇到了slider，发现其实slider-runnable-track完全可以不写直接写在input中 */
   height: 2px;
   background-color: var(--icon-color);
   border-radius: 1px;
+  cursor: pointer;
 }
 input[type="range"] {
   -moz-appearance: none;
