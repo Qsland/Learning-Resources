@@ -10,10 +10,11 @@ There is something interesting that I came across by accident. I cloned them fro
 - 3.4 Pure CSS Animated Cake
 - 3.5 CSS controlled Lamp with Range Input
 - 3.6 CSS controlled Lamp with Range Input
-- 3.7 LoginFormWithFloatingPlaceholderAndLightButton
+- 3.7 Login Form With Floating Placeholder And Light Button
 - 3.8 Random Password Generator
 - 3.9 Random Password Generator
-- 3.10 Random Password Generator
+- 3.10 Random Password Generato
+- 3.11 Random Password Generato
 
 
 
