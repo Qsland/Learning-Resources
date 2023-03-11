@@ -1,0 +1,197 @@
+html {
+  height: 100%;
+  /* 原作者把background写在了body中
+   * 测试了一下，应该是html吸收了body的background
+   * 浏览器会吸收html或body的background-color，根据情况而定
+   * 可能涉及CSS的渲染原理
+   */
+  background: linear-gradient(#141e30, #243b55);
+}
+body {
+  /* body有maigin、padding html没有margin、padding 基于Chrome、Edge、firefox*/
+  margin: 0;
+  height: 200px;
+
+  font-family:sans-serif;
+}
+
+/* 绝对定位，相对于根元素html */
+.login-box {
+  /* position + transform 实现水平、垂直居中 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 内部居中 */
+  box-sizing: border-box;
+  padding: 40px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  color: #fff;
+}
+
+.login-box h2 {
+  /* hx 是有自己的margin的  */
+  margin: 0 0 30px;
+  /* text-align 定义块级元素内的文字相对于块级元素本身的对齐方式 */
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  border: none;
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30px;
+  /* input有默认padding值 */
+  padding: 10px 0;
+  /* input的outline会在focus的时候显示出来，虽然不知道为什么直接在input中写就可以消去 */
+  outline: none;
+  color: #fff;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  padding: 10px 0;
+  font-size: 16px;
+  transition: all .4s;
+}
+
+.login-box .user-box label:hover {
+  cursor: text;
+}
+
+/* ~ 选择紧邻的元素 */
+/* :valid 伪类 */
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: #03e9f4;
+}
+.login-box .user-box input:focus ~ label:hover,
+.login-box .user-box input:valid ~ label:hover {
+  cursor: default;
+}
+
+/* submit */
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #03e9f4;
+  text-decoration: none;
+  /* 指定如何将元素的文本大写 */
+  text-transform: uppercase;
+  transition: all .5s;
+  
+  overflow: hidden;
+}
+
+.login-box form a:hover {
+  background-color: #03e9f4;
+  color: #fff;
+  /* 有transition，再搭配这个多个shadow，button的光逐渐饱满，很好看 */
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px#03e9f4,
+              0 0 50px#03e9f4,
+              0 0 100px#03e9f4;
+}
+
+.login-box form a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box form a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  /* 从左到右过渡 */
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  /* 不能一个left，一个right，同一个属性变化，不然就是两个状态保持 */
+  100% {
+    left: 100%;
+  }
+}
+
+.login-box form a span:nth-child(2) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  /* 从左到右过渡 */
+  background: linear-gradient(90deg, #03e9f4, transparent);
+  animation: btn-anim2 1s linear infinite 1s;
+}
+
+@keyframes btn-anim2 {
+  form {
+    right: -100%;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+.login-box form a span:nth-child(3) {
+  bottom: -100%;
+  left: 0;
+  height: 100%;
+  width: 2px;
+  /* 从左到右过渡 */
+  background: linear-gradient( #03e9f4, transparent);
+  animation: btn-anim3 1s linear infinite 1.5s;
+}
+
+@keyframes btn-anim3 {
+  /* from的状态要和最开始设置的状态保持一致 */
+  form {
+    bottom: -100%;
+  }
+  to {
+    bottom: 100%;
+  }
+}
+
+.login-box form a span:nth-child(4) {
+  top: -100%;
+  right: 0;
+  height: 100%;
+  width: 2px;
+  /* 从左到右过渡 */
+  background: linear-gradient(transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite 0.5s;
+}
+
+@keyframes btn-anim4 {
+  /* from的状态要和最开始设置的状态保持一致 */
+  form {
+    top: -100%;
+  }
+  to {
+    top: 100%;
+  }
+}
+

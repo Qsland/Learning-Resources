@@ -1,0 +1,211 @@
+.lamp-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.lamp-rope {
+  /* 脱离文档流，lamp-rope的高度不干扰lamp-wrapper */
+  position: absolute;
+  width: 8px;
+  height: 999px;
+  /* 从上至下到90%处开始颜色过渡 本质也是img */
+  background: linear-gradient(var(--border-color) 90%, var(--rope-color));
+  bottom: 100%;
+}
+
+/* lamp */
+.lamp {
+  position: relative;
+  height: var(--lamp-height);
+  width: var(--lamp-width);
+  /* border: 2px solid; */
+}
+
+.lamp-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--lamp-height);
+  /* 50%是不够两片重叠的 */
+  width: 60%;
+  background-color: var(--lamp-dark-color);
+  /* skew 定义元素在x方向和y方向的倾斜角度 */
+  /* 是为了两个body用倾斜凑梯形 */
+  transform: skewX(-5deg);
+}
+.lamp-part.lamp-body.lamp-right {
+  top: 0;
+  /* left重置否则不起作用 */
+  /* 上边也可以选择不写left 和 top因为本来也不需要动
+   * 但是让自己长个记性哈哈哈哈
+   */
+  left: auto;
+  right: 0;
+  transform: skewX(5deg);
+}
+
+.lamp-part.lamp-top {
+  background: transparent;
+  position: absolute;
+  top: -17px;
+  left: 6px;
+  width: calc(var(--lamp-width) - 10px);
+  height: var(--lamp-top-height);
+  background-color: transparent;
+}
+
+.lamp-part.lamp-top-part {
+  height: var(--lamp-top-height);
+  border-radius: 80% 0 0 0;
+  border-top: 2px solid var(--border-color);
+}
+.lamp-part.lamp-top-part.lamp-right {
+  left: auto;
+  right: 0;
+  border-radius: 0 80% 0 0;
+}
+
+.lamp-part.lamp-bottom {
+  /* box-sizing: border-box; */
+  position: absolute;
+  top: auto;
+  bottom: -18px;
+  left: -5px;
+  transform: skew(0);
+  height: calc(var(--lamp-top-height) + 10px);
+  width: calc(var(--lamp-width) + 10px);
+  border-radius: 50%;
+  border-top: 3px solid var(--border-color);
+  border-bottom: 2px solid var(--lamp-light-color);
+  background: linear-gradient(#fffffa, #fdffb2);
+}
+.lamp-part.lamp-bottom::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: linear-gradient(var(--border-color), var(--lamp-light-color));
+  opacity: 1;
+  transition: all 300ms;
+}
+
+/* bulb */
+.blub {
+  position: absolute;
+  top: calc(var(--lamp-top-height) - 10px);
+  left: calc(var(--lamp-top-height) - 10px);
+
+  width: calc(var(--lamp-width) - 20px);
+  height: calc(var(--lamp-height) - 20px);
+  border-radius: 5% 3% 38% 40%;
+  background-color: #fefedf;
+  /* filter 将模糊或颜色偏移等图形效果应用于元素 */
+  /* blur 模糊效果  将高斯模糊应用于输出图片 */
+  /* -webkit-blur: blur(15px); */
+  filter: blur(15px);
+  z-index: 2;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.wall-light-shadow {
+  position: absolute;
+  top: 150%;
+  z-index: -1;
+
+  width: 80%;
+  height: 200vh;
+  background: linear-gradient(var(--lamp-light-color), var(--main-bg-color) 30%);
+  border-radius: 50% 50% 0 0;
+  filter: blur(5px);
+
+  opacity: 0;
+  transition: all 300ms;
+}
+
+/* ^=value 匹配以value开始的值 */
+/* 因为虽然range有设置min和max，只是表示我们可以有max-min + 1个位置
+ * 给body.data-light添加的值仍然是从0-100中的几个数
+ */
+body[data-light^="1"] .blub,
+body[data-light^="1"] .wall-light-shadow {
+  opacity: 0.1;
+}
+body[data-light^="1"] .lamp-part.lamp-bottom::before {
+  opacity: 0.9;
+}
+
+body[data-light^="2"] .blub,
+body[data-light^="2"] .wall-light-shadow {
+  opacity: 0.2;
+}
+body[data-light^="2"] .lamp-part.lamp-bottom:before {
+  opacity: 0.8;
+}
+
+body[data-light^="3"] .blub,
+body[data-light^="3"] .wall-light-shadow {
+  opacity: 0.3;
+}
+body[data-light^="3"] .lamp-part.lamp-bottom:before {
+  opacity: 0.7;
+}
+
+body[data-light^="4"] .blub,
+body[data-light^="4"] .wall-light-shadow {
+  opacity: 0.4;
+}
+body[data-light^="4"] .lamp-part.lamp-bottom:before {
+  opacity: 0.6;
+}
+
+body[data-light^="5"] .blub,
+body[data-light^="5"] .wall-light-shadow {
+  opacity: 0.5;
+}
+body[data-light^="5"] .lamp-part.lamp-bottom:before {
+  opacity: 0.5;
+}
+
+body[data-light^="6"] .blub,
+body[data-light^="6"] .wall-light-shadow {
+  opacity: 0.6;
+}
+body[data-light^="6"] .lamp-part.lamp-bottom:before {
+  opacity: 0.4;
+}
+
+body[data-light^="7"] .blub,
+body[data-light^="7"] .wall-light-shadow {
+  opacity: 0.7;
+}
+body[data-light^="7"] .lamp-part.lamp-bottom:before {
+  opacity: 0.3;
+}
+
+body[data-light^="8"] .blub,
+body[data-light^="8"] .wall-light-shadow {
+  opacity: 0.8;
+}
+body[data-light^="8"] .lamp-part.lamp-bottom:before {
+  opacity: 0.2;
+}
+
+body[data-light^="9"] .blub,
+body[data-light^="9"] .wall-light-shadow {
+  opacity: 0.9;
+}
+body[data-light^="9"] .lamp-part.lamp-bottom:before {
+  opacity: 0.1;
+}
+
+body[data-light^="10"] .blub,
+body[data-light^="10"] .wall-light-shadow {
+  opacity: 1;
+}
+body[data-light^="10"] .lamp-part.lamp-bottom:before {
+  opacity: 0;
+}

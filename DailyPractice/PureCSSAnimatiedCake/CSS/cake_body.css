@@ -1,0 +1,168 @@
+/* body */
+.body {
+  height: 120px;
+  border-radius: 20px 20px 0 0;
+  background: #aafddc;
+
+  position: relative;
+  /* 是奶油平移出body的时候hidden */
+  overflow: hidden;
+  /* 让两行奶油不要换行 */
+  white-space: nowrap;
+  /* font-size: 0; */
+}
+
+.cream {
+  height: 32px;
+  background-color: #e5beff;
+  width: 100%;
+}
+
+.cream-wrap {
+  display: inline-block;
+  width: 100%;
+  /* 指定一组动画 */
+  animation: rotate-cake 8s linear infinite;
+}
+
+.--copy {
+  animation: rotate-cake2 8s linear infinite;
+  animation-delay: -4s;
+
+  /* 预留位置，不改变页面布局 */
+  position: relative;
+  /* 也可以再加一个cream-line-top，但是这样的话也还是要-30，因为--copy运动的开始位置必须要在body的左边或者覆盖过去，可以计算一下时间，重新设置 */
+  left: -30px;
+}
+.cream-line {
+  width: 30px;
+  height: 60px;
+  background-color: #e5beff;
+  border-radius: 0 0 20px 20px;
+
+  /* 移出文档流 */
+  position: absolute;
+  /* 设置奶油流的位置 */
+  top: 29px;
+  left: 0;
+}
+
+/* .cream-line的父元素的第二个元素 */
+.cream-line:nth-child(2) {
+  height: 70px;
+  left: 60px;
+  background-color: #e5beff;
+}
+
+/* 这是流动的奶油 */
+.cream-wrap:not(.--copy) .cream-line:nth-child(2) {
+  animation: cream-low 8s linear infinite;
+}
+
+.cream-line:nth-child(6) {
+  left: 120px;
+  height: 67px;;
+}
+
+.cream-line:nth-child(8) {
+  left: 180px;
+  height: 80px;
+}
+
+.cream-line:nth-child(10) {
+  left: 240px;
+  height: 60px;
+}
+
+.cream-line-top {
+  position: absolute;
+  left: 30px;
+  top: 32px;
+  width: 30px;
+  height: 30px;
+  /* background-color: #e5beff; */
+  background-color: #e5beff;
+}
+
+.cream-line-top:not(.--copy) {
+  top: 0;
+}
+
+.cream-line-top:nth-child(5) {
+  left: 90px;
+  top: 15px;
+}
+
+.cream-line-top:nth-child(9) {
+  left: 150px;
+  top: 22px;
+}
+
+/* 这里是两个中间缺的，可是是为什么缺少了？不是一样额大小吗 */
+.cream-line-top:nth-child(11) {
+  left: 210px;
+  top: 25px;
+}
+
+.cream-line-top:nth-child(13) {
+  left: 270px;
+  top: 0px;
+  /* 两个奶油之间有空隙，font-size设置了0也没有效果 */
+  /* Chrome 以及 Chromium 内核的浏览器在中文语言下最小字体只能是 12px */
+  /* 3.5 突然觉得应该不是这个原因，只是增加了1px就能覆盖缝隙
+   * 确认了在firefox中压根不会出现空隙，即便不设置font-size，即便仍然保留文本分割符号
+   * 我的结论是firefox和chrome中对于inlin-box的渲染方式可能有不同，具体为什么不同，
+   * 我搞不太清楚，病急乱投医问了chatgpt，哈哈但是没有具体的参考资料，懒得找了先这样吧
+   * 
+   */
+  width: 31px;
+}
+
+.cream-line-top .mask {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  background-color: #aafddc;
+  top: 20px;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0px -7px 0px 0px #d9b8ef;
+}
+
+/* 与transition相比，keyframes可以控制中间的步骤 */
+/* body-cream */
+/* 使用 from to指定两d段状态 */
+@keyframes rotate-cake {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rotate-cake2 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+/* 使用百分比指定多段状态 */
+@keyframes cream-low {
+  0% {
+    height: 65px;
+  }
+
+  25% {
+    height: 75px;
+  }
+
+  50% {
+    height: 85px;
+  }
+
+  100% {
+    height: 85px;
+  }
+}

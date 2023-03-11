@@ -1,0 +1,70 @@
+form {
+  /* 这个margin edge、Chrome没有，firefox有默认的margin，要设为0 */
+  /* margin: 0; */
+  width: 200px;
+  padding: 2em 2.2em;
+  border-radius: 4px;
+  background-color: var(--slider-bg-color);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+input[type="range"] {
+  /* 清除浏览器的默认样式 */
+  /* -webkit-appearence基于 WebKit 的浏览器（如 Safari）和基于 Blink 的浏览器 */
+  /* 这里在firefox上也能用 */
+  -webkit-appearance: none;
+
+  /* range和小太阳水平 */
+  margin: 3px 0;
+  float: right;
+  width: calc(100% - 30px);
+ 
+  /* firefox里边在这儿控制slider */
+  /* 3.10 今天在generate password中也遇到了slider，发现其实slider-runnable-track完全可以不写直接写在input中 */
+  height: 2px;
+  background-color: var(--icon-color);
+  border-radius: 1px;
+  cursor: pointer;
+}
+input[type="range"] {
+  -moz-appearance: none;
+}
+
+/* ::-webkit-slider-runnable-track 
+ * 表示其在 type 为 range 的 input 标签内中的滑块凹槽，也就是滑块可滑动的区域
+*/
+input[type="range"]::-webkit-slider-runnable-track{
+  height: 2px;
+  cursor: pointer;
+  background-color: var(--icon-color);
+  border-radius: 1px;
+}
+
+/* ::-webkit-slider-thumb
+ * 是 type 为 range 的 input 标签内的一种伪类样式，用于设置 range 的滑块的具体样式
+*/
+input[type="range"]::-webkit-slider-thumb {
+  /* 这thumb的样式居然不跟随input */
+  -webkit-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: var(--icon-color);
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 5px var(--icon-color);
+}
+
+input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--icon-color);
+  cursor: pointer;
+  margin-top: -6px;
+}

@@ -1,0 +1,32 @@
+:root {
+  --main-bg-color: #b095f1;
+  --slider-bg-color: #b090f6;
+  --lamp-dark-color: #f679d2;
+  --lamp-light-color: #d5a4ef;
+  --shadow-color: #734bd4;
+  /*  */
+  --icon-color: #ebe4f1;
+  --rope-color: #9938b8;
+  --border-color: #482896;
+
+  /* lamp size */
+  --lamp-width: 140px;
+  --lamp-height: 100px;
+  --lamp-top-height: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  /* column交叉轴就是水平 align-items作用于交叉轴 */
+  align-items: center;
+  /* 沿主轴均匀分布弹性元素 */
+  justify-content: space-evenly;
+  
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--main-bg-color);
+  margin: 0;
+  overflow: hidden;
+}
+
