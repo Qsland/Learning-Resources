@@ -20,7 +20,7 @@
       <div class="result-title field-title">Generated Password</div>
       <div class="result-info -right">click to copy</div>
       <div class="result-info -left">copied</div>
-      <div class="result-viewbox">click generate</div>
+      <div class="result-viewbox" id="result">click generate</div>
       <button id="copy-btn" style="--x: 0; --y: 0;">
         <i class="fa-solid fa-copy"></i>
       </button>
@@ -37,22 +37,22 @@
       <span class="settings-title field-title">settings</span>
   
       <div class="setting">
-        <input type="checkbox" id="uppercase" />
+        <input type="checkbox" id="uppercase" checked/>
         <label for="uppercase">Include Uppercase</label>
       </div>
   
       <div class="setting">
-        <input type="checkbox" id="lowercase" />
+        <input type="checkbox" id="lowercase" checked/>
         <label for="lowercase">Include lowercase</label>
       </div>
       
       <div class="setting">
-        <input type="checkbox" id="number" />
+        <input type="checkbox" id="number" checked/>
         <label for="number">Include Numbers</label>
       </div>
   
       <div class="setting">
-        <input type="checkbox" id="symbol" />
+        <input type="checkbox" id="symbol" checked/>
         <label for="symbol">Include Symbols</label>
       </div>
     </div>

@@ -71,7 +71,7 @@ body {
   color: rgba(255, 255, 255, .5);
   text-transform: uppercase;
   font-size: 0.65rem;
-  /* pointer-wvwnts 指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target */
+  /* pointer-events 指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target */
   /* none 表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西。*/
   /* 光标样式和父级元素样式有关 */
   /* 现有的理解：这样的话那几个title就不能被选中，hove的时候指针也不会有变化 */

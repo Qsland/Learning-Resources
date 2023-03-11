@@ -27,3 +27,23 @@
 - 好像没啥用，在这里
 - 设置一个块级容器在新的分页，区域或者列的顶部需要结合在一起的最小行数
 - 在新页面顶部单独出现的段落的最后一行
+
+## Element.getBoundingClientRect()
+- 返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置
+### DOMRect对象
+- 包含整个元素的最小矩形，包括 padding 和 border-width
+- 使用 left、top、right、bottom、x、y、width 和 height 这几个以像素为单位的只读属性描述整个矩形的位置和大小
+  - x -> left
+  - y -> top
+- width 和 height 属性是包含了 padding 和 border-width
+
+## pointer-events
+- 指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target
+  - 这个特定的图像元素可以实包含在元素被不的子元素中的图形
+- 控制元素是否响应鼠标事件，如果设置pointer-events为none，那么元素就不会成为鼠标事件的目标，也就不会触发任何事件处理器
+-如果元素的后代元素设置了其他的pointer-events值，那么鼠标事件可以指向后代元素，并且在捕获或冒泡阶段，父元素的事件侦听器也会被触发
+- 如果你想阻止一个元素的冒泡，你可以设置pointer-events为none，但是要注意它也会影响元素的后代元素
+
+## 文本复制
+### document.execCommand('copy')
+- 先创建一个input或textarea元素，然后将要复制的文本赋值给它，并选中它，再执行复制命令。这种方法的优点是兼容性好，缺点是需要操作DOM元素，并且可能会被浏览器弃用。

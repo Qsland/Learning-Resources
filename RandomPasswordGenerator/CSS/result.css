@@ -15,7 +15,7 @@
   /* ease-in-out 先慢后快 */
   transition: all 150ms ease-in-out;
   transform: translateY(200%);
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .result-info.-right {
