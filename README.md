@@ -15,6 +15,7 @@ There is something interesting that I came across by accident. I cloned them fro
 - 3.9 Random Password Generator
 - 3.10 Random Password Generato
 - 3.11 Random Password Generato
+- 3.12 Light or Dark Toggle with Morphing Icon
 
 ### 🎉🎉Achievements🎉🎉
 - [x] ONE WEEK STREAK 3.10
