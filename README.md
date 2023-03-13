@@ -24,7 +24,7 @@ There is something interesting that I came across by accident. I cloned them fro
 - [ ] ONE MONTH STREAK
 
 ## Stuff and Nonsense
-I realized that if I just read or practice aimless maybe I will forget them very soon. That's painful. Why I am soooo stupid？ Or maybe it's just because I am too lazy. Anyway I don't want to remember those important knowledge by read or recite. Here, I will try my best to thinking and explaining in my own words. 
+I realized that if I just read or practice aimless maybe I will forget them very soon. That's painful. Why I am soooo stupid？ Or maybe it's just because I am too lazy. Anyway I don't want to remember those important knowledge by reading or reciting. Here, I will try my best to think and explain in my own words. 
 
 > Gather up your courage and write something, just like you gathered up your courage and wrote these awkward words today.
 
