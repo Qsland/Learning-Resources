@@ -1,0 +1,23 @@
+.theme__toggle-wrap .theme__toggle {
+  display: block;
+  position: relative;
+
+  /* 兼容性写法 */
+  -webkit-appearance: none;
+  appearance: none;
+
+  height: 3em;
+  width: 6em;
+  padding: 0.25em;
+  border-radius: 25% / 50%;
+  background-color: var(--button-bg);
+}
+/* 上边的那个滚来滚去的按钮 */
+.theme__toggle-wrap .theme__toggle::before {
+  content: "";
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: var(--button-fg);
+}

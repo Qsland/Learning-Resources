@@ -1,0 +1,54 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 223;
+  /* 色相 - 饱和度 - 亮度（Hue-saturation-lightness）模式 */
+  --bg: hsl(var(--hue), 10%, 100%);
+  --fg: hsl(var(--hue), 10%, 0%);
+  --premary: hsl(var(--hue), 90%, 55%);
+  --premaryTrans: hsla(var(--hue), 90%, 55%, 0);
+  --button-bg: hsl(48, 90%, 85%);
+  --button-fg: hsl(48, 90%, 55%);
+
+  --transDura: 0.3s;
+
+  /* 响应式设置字体大小 */
+  font-size: calc(16px + (32 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+html,
+body {
+  background-color: var(--bg);
+}
+
+body,
+input {
+  font: 1em/1.5 Fredoka, sans-serif;
+}
+
+body {
+  color: var(--fg);
+  height: 100vh;
+  /* 网格布局？为什么用网格布局？ */
+  /* 这里只有这一个就达到了水平垂直居中 */
+  display: grid;
+  /* 同时沿着块级和内联方向对齐元素 */
+  place-items: center;
+}
+
+/* default */
+.theme {
+  /* 内部使用display布局 */
+  display: flex;
+  /* 交叉轴方向 */
+  align-items: center;
+}
+
+
+
+

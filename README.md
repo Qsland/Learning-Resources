@@ -16,6 +16,7 @@ There is something interesting that I came across by accident. I cloned them fro
 - 3.10 Random Password Generato
 - 3.11 Random Password Generato
 - 3.12 Light or Dark Toggle with Morphing Icon
+- 3.12 Light or Dark Toggle with Morphing Icon
 
 ### 🎉🎉Achievements🎉🎉
 - [x] ONE WEEK STREAK 3.10
@@ -26,3 +27,7 @@ There is something interesting that I came across by accident. I cloned them fro
 I realized that if I just read or practice aimless maybe I will forget them very soon. That's painful. Why I am soooo stupid？ Or maybe it's just because I am too lazy. Anyway I don't want to remember those important knowledge by read or recite. Here, I will try my best to thinking and explaining in my own words. 
 
 > Gather up your courage and write something, just like you gathered up your courage and wrote these awkward words today.
+
+## Daily Reading
+> Prepare for my next idea.
+> Collecting some sentences...
